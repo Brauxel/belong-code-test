@@ -21,8 +21,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:nowatch": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
+  "pre-push": [
+    "test:nowatch"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -56,6 +60,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-react": "^7.31.7",
+    "pre-push": "^0.1.3",
     "prettier": "^2.7.1"
   }
 }
