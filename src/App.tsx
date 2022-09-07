@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { Button } from './components/shared/atoms/Button'
 import {
   cellRange,
   CellSimulator,
@@ -52,14 +53,21 @@ export const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <p>Welcome to my Cell simulator</p>
         <CellSimulator
           cells={compiledCellArray}
           noOfColumns={6}
           toggleGridValue={toggleGridLife}
         />
-      </header>
+
+        <Button
+          type="button"
+          onClick={() => setCellValues({ ...initialState })}
+        >
+          Reset
+        </Button>
+      </div>
     </div>
   )
 }
