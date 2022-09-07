@@ -5,6 +5,7 @@ import {
   cellRange,
   CellSimulator,
 } from './components/shared/elements/CellSimulator'
+import { computeNextGeneration } from './utils/computeNextGeneration'
 
 export interface CellValuesState {
   liveCells: number[][]
@@ -51,6 +52,10 @@ export const App = () => {
     setCellValues({ ...cellValuesCopy })
   }
 
+  const generateNextGeneration = () => {
+    setCellValues({ ...computeNextGeneration(cellValues) })
+  }
+
   return (
     <div className="App">
       <div className="App-header">
@@ -66,6 +71,10 @@ export const App = () => {
           onClick={() => setCellValues({ ...initialState })}
         >
           Reset
+        </Button>
+
+        <Button type="button" onClick={generateNextGeneration}>
+          Next Generation
         </Button>
       </div>
     </div>
