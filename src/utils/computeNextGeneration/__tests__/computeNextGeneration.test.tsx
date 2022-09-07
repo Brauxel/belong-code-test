@@ -42,6 +42,16 @@ describe('computeNextGeneration', () => {
     ],
   }
 
+  const fourthGeneration: CellValuesState = {
+    liveCells: [
+      [2, 3],
+      [3, 4],
+      [4, 2],
+      [4, 3],
+      [4, 4],
+    ],
+  }
+
   it('should correctly generate the first generation', () => {
     expect(computeNextGeneration(cellValues)).toEqual(firstGeneration)
   })
@@ -52,5 +62,9 @@ describe('computeNextGeneration', () => {
 
   it('should correctly generate the third generation', () => {
     expect(computeNextGeneration(secondGeneration)).toEqual(thirdGeneration)
+  })
+
+  it('should correctly generate the fourth generation', () => {
+    expect(computeNextGeneration(thirdGeneration)).toEqual(fourthGeneration)
   })
 })
