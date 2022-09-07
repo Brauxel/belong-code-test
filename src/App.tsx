@@ -5,29 +5,11 @@ import {
   cellRange,
   CellSimulator,
 } from './components/shared/elements/CellSimulator'
+import { constructCellArray } from './utils/cellComputers'
 import { computeNextGeneration } from './utils/computeNextGeneration'
 
 export interface CellValuesState {
   liveCells: number[][]
-}
-
-export const constructCellValues = (
-  cellValues: CellValuesState
-): cellRange[][] => {
-  const initialCellValues: cellRange[][] = [
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-  ]
-
-  for (const val of cellValues.liveCells) {
-    initialCellValues[val[0]][val[1]] = 1
-  }
-
-  return initialCellValues
 }
 
 export const App = () => {
@@ -37,7 +19,7 @@ export const App = () => {
 
   const [cellValues, setCellValues] = useState<CellValuesState>(initialState)
 
-  const compiledCellArray: cellRange[][] = constructCellValues(cellValues)
+  const compiledCellArray: cellRange[][] = constructCellArray(cellValues)
 
   const toggleGridLife = (location: number[]) => {
     const cellValuesCopy = { ...cellValues }
