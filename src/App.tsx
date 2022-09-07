@@ -67,6 +67,8 @@ export const App = () => {
         >
           Reset
         </Button>
+
+        <Button type="button">Next Generation</Button>
       </div>
     </div>
   )
