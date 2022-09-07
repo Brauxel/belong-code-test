@@ -14,5 +14,17 @@ export const computeNextGeneration = (cellValues: CellValuesState) => {
     }
   }
 
+  // BFS
+  const directions = [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [0, -1],
+    [0, 1],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+  ]
+
   return cellValues
 }
