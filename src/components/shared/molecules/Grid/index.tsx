@@ -23,7 +23,11 @@ export const Grid: React.FC<GridProps> = ({
   noOfColumns,
   ...elementAttributes
 }) => (
-  <GridComponent {...elementAttributes} noOfColumns={noOfColumns}>
+  <GridComponent
+    noOfColumns={noOfColumns}
+    data-testid="grid-test-id"
+    {...elementAttributes}
+  >
     {children}
   </GridComponent>
 )

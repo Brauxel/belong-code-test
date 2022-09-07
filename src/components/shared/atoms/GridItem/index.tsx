@@ -36,6 +36,7 @@ export const GridItem: React.FC<GridItemProps> = ({
     <GridItemComponent
       className={isAlive ? 'alive' : ''}
       onClick={clickHandler}
+      data-testid="grid-item-test-id"
       {...elementAttributes}
     >
       {children}
