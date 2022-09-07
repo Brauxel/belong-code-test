@@ -33,15 +33,32 @@ export const App = () => {
     liveCells: [],
   }
 
-  const [cellValues] = useState<CellValuesState>(initialState)
+  const [cellValues, setCellValues] = useState<CellValuesState>(initialState)
 
   const compiledCellArray: cellRange[][] = constructCellValues(cellValues)
+
+  const toggleGridLife = (location: number[]) => {
+    const cellValuesCopy = { ...cellValues }
+    const locationIndex = cellValuesCopy.liveCells.findIndex(
+      (element) => element[0] === location[0] && element[1] === location[1]
+    )
+    if (locationIndex < 0) {
+      cellValuesCopy.liveCells.push(location)
+    } else {
+      cellValuesCopy.liveCells.splice(locationIndex, 1)
+    }
+    setCellValues({ ...cellValuesCopy })
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         <p>Welcome to my Cell simulator</p>
-        <CellSimulator cells={compiledCellArray} noOfColumns={6} />
+        <CellSimulator
+          cells={compiledCellArray}
+          noOfColumns={6}
+          toggleGridValue={toggleGridLife}
+        />
       </header>
     </div>
   )
