@@ -1,11 +1,13 @@
 import React, { HTMLAttributes } from 'react'
 import styled from 'styled-components'
 import '../../../../styles/globals.css'
+import { toggleGridValueType } from '../../elements/CellSimulator'
 
 interface GridItemProps extends HTMLAttributes<HTMLElement> {
   children: React.ReactNode
   isAlive?: boolean
   location: number[]
+  toggleGridValue?: toggleGridValueType
 }
 
 const GridItemComponent = styled.a`
@@ -23,11 +25,17 @@ export const GridItem: React.FC<GridItemProps> = ({
   children,
   isAlive,
   location,
+  toggleGridValue,
   ...elementAttributes
 }) => {
+  const clickHandler = () => {
+    if (toggleGridValue) toggleGridValue(location)
+  }
+
   return (
     <GridItemComponent
       className={isAlive ? 'alive' : ''}
+      onClick={clickHandler}
       {...elementAttributes}
     >
       {children}
