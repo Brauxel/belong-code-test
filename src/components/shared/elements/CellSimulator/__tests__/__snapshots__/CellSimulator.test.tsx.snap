@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellSimulator should match the snapshot when the default props with a mix of dead and live cells are provided 1`] = `
+<div
+  className="sc-gsnTZi cIIKvB"
+  data-testid="grid-test-id"
+>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw alive"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw alive"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw alive"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw alive"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw alive"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+  <a
+    className="sc-bczRLJ kdgDqw"
+    data-testid="grid-item-test-id"
+    onClick={[Function]}
+  >
+     
+  </a>
+</div>
+`;
