@@ -1,13 +1,11 @@
-import React, { TableHTMLAttributes } from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from 'styled-components'
 
 interface GridComponentProps {
   noOfColumns: number
 }
 
-interface GridProps
-  extends TableHTMLAttributes<HTMLElement>,
-    GridComponentProps {
+interface GridProps extends HTMLAttributes<HTMLElement>, GridComponentProps {
   children: React.ReactNode
 }
 
