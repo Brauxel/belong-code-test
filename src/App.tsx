@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash'
 import { useState } from 'react'
 import './App.css'
 import { Button } from './components/shared/atoms/Button'
@@ -20,10 +21,12 @@ export const App = () => {
   const [cellValues, setCellValues] = useState<cellRange[][]>(initialState)
 
   const toggleGridLife = (location: number[]) => {
-    cellValues[location[0]][location[1]] =
-      cellValues[location[0]][location[1]] === 1 ? 0 : 1
+    const cellValueCopy = cloneDeep(cellValues)
 
-    setCellValues([...cellValues])
+    cellValueCopy[location[0]][location[1]] =
+      cellValueCopy[location[0]][location[1]] === 1 ? 0 : 1
+
+    setCellValues([...cellValueCopy])
   }
 
   const generateNextGeneration = () => {
