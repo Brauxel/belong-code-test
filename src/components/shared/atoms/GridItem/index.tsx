@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from 'react'
 import styled from 'styled-components'
-import '../../../../styles/globals.css'
 import { toggleGridValueType } from '../../elements/CellSimulator'
 
 interface GridItemProps extends HTMLAttributes<HTMLElement> {
@@ -19,6 +18,10 @@ const GridItemComponent = styled.a`
 
   &:hover {
     background-color: rgba(255, 255, 255, 1);
+  }
+
+  &.alive {
+    background-color: green !important;
   }
 `
 export const GridItem: React.FC<GridItemProps> = ({

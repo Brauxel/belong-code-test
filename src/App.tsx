@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash'
 import { useState } from 'react'
-import './App.css'
+import { AppComponent, AppHeaderComponent } from './App.styles'
 import { Button } from './components/shared/atoms/Button'
 import {
   cellRange,
@@ -34,9 +34,9 @@ export const App = () => {
   }
 
   return (
-    <div className="App">
-      <div className="App-header">
-        <p>Welcome to my Cell simulator</p>
+    <AppComponent>
+      <AppHeaderComponent>
+        <h1>Welcome to my cell simulator</h1>
         <p>
           To see the planning around this project, please click{' '}
           <a
@@ -70,7 +70,7 @@ export const App = () => {
         <Button type="button" onClick={generateNextGeneration}>
           Next Generation
         </Button>
-      </div>
-    </div>
+      </AppHeaderComponent>
+    </AppComponent>
   )
 }
