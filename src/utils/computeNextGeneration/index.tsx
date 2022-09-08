@@ -74,15 +74,15 @@ export const extractValueLocationsFromCellArray = (
 }
 
 export const computeRowColInCircularArray = (
-  row: number,
-  col: number,
+  rowArg: number,
+  colArg: number,
   cellValues: cellRange[][]
 ) => {
-  let computedRow = row >= cellValues.length ? 0 : row
-  computedRow = computedRow < 0 ? cellValues.length - 1 : computedRow
+  let row = rowArg >= cellValues.length ? 0 : rowArg
+  row = row < 0 ? cellValues.length - 1 : row
 
-  let computedCol = col >= cellValues[0].length ? 0 : col
-  computedCol = computedCol < 0 ? cellValues[0].length - 1 : computedCol
+  let col = colArg >= cellValues[0].length ? 0 : colArg
+  col = col < 0 ? cellValues[0].length - 1 : col
 
-  return { row: computedRow, col: computedCol }
+  return { row, col }
 }
