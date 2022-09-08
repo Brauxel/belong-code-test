@@ -37,6 +37,26 @@ export const App = () => {
     <div className="App">
       <div className="App-header">
         <p>Welcome to my Cell simulator</p>
+        <p>
+          To see the planning around this project, please click{' '}
+          <a
+            target="_blank"
+            href="https://trello.com/b/JSZal3le/belong-code-test"
+            rel="noreferrer"
+          >
+            here
+          </a>
+        </p>
+        <p>
+          To see the repository, please click{' '}
+          <a
+            target="_blank"
+            href="https://github.com/Brauxel/belong-code-test"
+            rel="noreferrer"
+          >
+            here
+          </a>
+        </p>
         <CellSimulator
           cells={cellValues}
           noOfColumns={6}
