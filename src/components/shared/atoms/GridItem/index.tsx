@@ -15,6 +15,7 @@ const GridItemComponent = styled.a`
   padding: 30px;
   font-size: 30px;
   text-align: center;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(255, 255, 255, 1);
