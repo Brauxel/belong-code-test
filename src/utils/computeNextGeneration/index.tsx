@@ -73,7 +73,7 @@ export const computeNextGeneration = (cellValues: cellRange[][]) => {
     - It returns an array of numbers with each entry representing the first and second index of the provided number
 */
 export const extractValueLocationsFromCellArray = (
-  value: cellRange,
+  value: number,
   cellValues: number[][]
 ): number[][] => {
   const queue = []
