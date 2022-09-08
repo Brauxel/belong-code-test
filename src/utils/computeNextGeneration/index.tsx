@@ -1,12 +1,8 @@
 import { cellRange } from '../../components/shared/elements/CellSimulator'
+import { cloneDeep } from 'lodash'
 
 export const computeNextGeneration = (cellValues: cellRange[][]) => {
-  const newCellValues = []
-
-  for (let index = 0; index < cellValues.length; index++) {
-    const element = cellValues[index]
-    newCellValues.push([...element])
-  }
+  const newCellValues = cloneDeep(cellValues)
 
   const queue = []
   for (let i = 0; i < cellValues.length; i++) {
