@@ -66,7 +66,7 @@ describe('computeNextGeneration', () => {
   })
 
   describe('test provided conditions', () => {
-    it('a cell with fewer than two live neighbors dies of under-population. ', () => {
+    it('a grid with fewer than two live neighbors dies of under-population. ', () => {
       const cellValues: cellRange[][] = [
         [0, 0, 0, 0, 0, 0],
         [0, 1, 0, 0, 0, 0],
@@ -88,7 +88,7 @@ describe('computeNextGeneration', () => {
       expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
     })
 
-    it('a cell with 2 or 3 live neighbors lives on to the next generation.', () => {
+    it('a grid with 2 or 3 live neighbors lives on to the next generation.', () => {
       const cellValues: cellRange[][] = [
         [0, 0, 0, 0, 0, 0],
         [0, 1, 1, 1, 0, 0],
@@ -109,7 +109,7 @@ describe('computeNextGeneration', () => {
       expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
     })
 
-    it('a cell with more than 3 live neighbors dies of overcrowding.', () => {
+    it('a grid with more than 3 live neighbors dies of overcrowding.', () => {
       const cellValues: cellRange[][] = [
         [0, 0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0, 0],
@@ -130,7 +130,7 @@ describe('computeNextGeneration', () => {
       expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
     })
 
-    it('an empty cell with exactly 3 live neighbors "comes to life".', () => {
+    it('an empty grid with exactly 3 live neighbors "comes to life".', () => {
       const cellValues: cellRange[][] = [
         [0, 0, 0, 0],
         [0, 1, 1, 0],
@@ -145,6 +145,40 @@ describe('computeNextGeneration', () => {
         [0, 0, 0, 0],
       ]
 
+      expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
+    })
+
+    it('a grid with all living cells must not have any living cells', () => {
+      const cellValues: cellRange[][] = [
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+      ]
+
+      const expectedResult: cellRange[][] = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+      ]
+      expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
+    })
+
+    it('a grid with no living cells must not have any living cells', () => {
+      const cellValues: cellRange[][] = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+      ]
+
+      const expectedResult: cellRange[][] = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+      ]
       expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
     })
   })
