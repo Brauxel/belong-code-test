@@ -3,15 +3,7 @@ import { cloneDeep } from 'lodash'
 
 export const computeNextGeneration = (cellValues: cellRange[][]) => {
   const newCellValues = cloneDeep(cellValues)
-
-  const queue = []
-  for (let i = 0; i < cellValues.length; i++) {
-    for (let j = 0; j < cellValues[0].length; j++) {
-      if (cellValues[i][j] === 1) {
-        queue.push([i, j])
-      }
-    }
-  }
+  const queue = extractValueLocationsFromCellArray(1, cellValues)
 
   // BFS
   const directions = [
@@ -74,4 +66,20 @@ export const computeNextGeneration = (cellValues: cellRange[][]) => {
   }
 
   return newCellValues
+}
+
+export const extractValueLocationsFromCellArray = (
+  value: cellRange,
+  cellValues: cellRange[][]
+) => {
+  const queue = []
+  for (let i = 0; i < cellValues.length; i++) {
+    for (let j = 0; j < cellValues[0].length; j++) {
+      if (cellValues[i][j] === value) {
+        queue.push([i, j])
+      }
+    }
+  }
+
+  return queue
 }
