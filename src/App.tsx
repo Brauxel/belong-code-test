@@ -63,7 +63,11 @@ export const App = () => {
           toggleGridValue={toggleGridLife}
         />
 
-        <Button type="button" onClick={() => setCellValues([...initialState])}>
+        <Button
+          type="button"
+          data-testid="reset-button"
+          onClick={() => setCellValues([...initialState])}
+        >
           Reset
         </Button>
 
