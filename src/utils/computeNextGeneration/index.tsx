@@ -5,6 +5,14 @@
 import { cellRange } from '../../components/shared/elements/CellSimulator'
 
 export const computeNextGeneration = (cellValues: cellRange[][]) => {
+  const queue = []
+  for (let i = 0; i < cellValues.length; i++) {
+    for (let j = 0; j < cellValues[0].length; j++) {
+      if (cellValues[i][j] === 1) {
+        queue.push([i, j])
+      }
+    }
+  }
   return cellValues
 }
 
