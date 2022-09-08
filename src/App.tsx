@@ -63,11 +63,19 @@ export const App = () => {
           toggleGridValue={toggleGridLife}
         />
 
-        <Button type="button" onClick={() => setCellValues([...initialState])}>
+        <Button
+          type="button"
+          data-testid="reset-button"
+          onClick={() => setCellValues([...initialState])}
+        >
           Reset
         </Button>
 
-        <Button type="button" onClick={generateNextGeneration}>
+        <Button
+          type="button"
+          data-testid="next-generation-button"
+          onClick={generateNextGeneration}
+        >
           Next Generation
         </Button>
       </AppHeaderComponent>
