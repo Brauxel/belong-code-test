@@ -1,10 +1,13 @@
-// import { CellValuesState } from '../../App'
-// import { cellRange } from '../../components/shared/elements/CellSimulator'
-// import { constructCellArray } from '../cellComputers'
-
 import { cellRange } from '../../components/shared/elements/CellSimulator'
 
 export const computeNextGeneration = (cellValues: cellRange[][]) => {
+  const newCellValues = []
+
+  for (let index = 0; index < cellValues.length; index++) {
+    const element = cellValues[index]
+    newCellValues.push([...element])
+  }
+
   const queue = []
   for (let i = 0; i < cellValues.length; i++) {
     for (let j = 0; j < cellValues[0].length; j++) {
@@ -26,111 +29,53 @@ export const computeNextGeneration = (cellValues: cellRange[][]) => {
     [1, 1],
   ]
 
-  return cellValues
+  while (queue.length > 0) {
+    let currentSize = queue.length
+
+    while (currentSize > 0) {
+      const currentElement: number[] | undefined = queue.shift()
+
+      if (currentElement) {
+        let currentAliveNeighbors = 0
+        for (const d of directions) {
+          let row: number = currentElement[0] + d[0]
+          let col: number = currentElement[1] + d[1]
+
+          row = row >= cellValues.length ? 0 : row
+          row = row < 0 ? cellValues.length - 1 : row
+
+          col = col >= cellValues[0].length ? 0 : col
+          col = col < 0 ? cellValues[0].length - 1 : col
+
+          if (cellValues[row][col] === 1) {
+            currentAliveNeighbors += 1
+          } else if (
+            cellValues[row][col] === 0 &&
+            cellValues[currentElement[0]][currentElement[1]] === 1
+          ) {
+            queue.push([row, col])
+          }
+        }
+
+        // if statements go here
+        if (cellValues[currentElement[0]][currentElement[1]] === 1) {
+          if (currentAliveNeighbors === 2 || currentAliveNeighbors === 3) {
+            continue
+          }
+
+          if (currentAliveNeighbors > 3 || currentAliveNeighbors < 2) {
+            newCellValues[currentElement[0]][currentElement[1]] = 0
+          }
+        } else {
+          if (currentAliveNeighbors === 3) {
+            newCellValues[currentElement[0]][currentElement[1]] = 1
+          }
+        }
+      }
+
+      currentSize--
+    }
+  }
+
+  return newCellValues
 }
-
-// export const computeNextGeneration2 = (cellValues: CellValuesState) => {
-//   const compiledCellArray: cellRange[][] = constructCellArray(cellValues)
-
-//   const queue = []
-//   for (let i = 0; i < compiledCellArray.length; i++) {
-//     for (let j = 0; j < compiledCellArray[0].length; j++) {
-//       if (compiledCellArray[i][j] === 1) {
-//         queue.push([i, j])
-//       }
-//     }
-//   }
-
-//   // BFS
-//   const directions = [
-//     [-1, -1],
-//     [-1, 0],
-//     [-1, 1],
-//     [0, -1],
-//     [0, 1],
-//     [1, -1],
-//     [1, 0],
-//     [1, 1],
-//   ]
-
-//   while (queue.length > 0) {
-//     let currentSize = queue.length
-//     let currentAliveNeighbors = 0
-
-//     while (currentSize > 0) {
-//       const currentElement = queue.shift()
-
-//       if (currentElement) {
-//         for (const d of directions) {
-//           let row = currentElement[0] + d[0]
-//           let col = currentElement[1] + d[1]
-
-//           row = row >= compiledCellArray.length ? 0 : row
-//           row = row < 0 ? compiledCellArray.length - 1 : row
-
-//           col = col >= compiledCellArray[0].length ? 0 : col
-//           col = col < 0 ? compiledCellArray[0].length - 1 : col
-
-//           if (compiledCellArray[row][col] === 1) {
-//             currentAliveNeighbors += currentAliveNeighbors
-//           }
-//         }
-
-//         currentSize--
-//       }
-//     }
-//   }
-
-//   return cellValues
-// }
-
-// export const computeNextGeneration = (cellValues: CellValuesState) => {
-//   const cellValuesCopy = { ...cellValues }
-//   const newCellValues: CellValuesState = {
-//     liveCells: [],
-//   }
-//   const compiledCellArray: cellRange[][] = constructCellArray(cellValues)
-
-//   while (cellValuesCopy.liveCells.length > 0) {
-//     const currentElement = cellValuesCopy.liveCells.shift()
-
-//     const directions = [
-//       [-1, -1],
-//       [-1, 0],
-//       [-1, 1],
-//       [0, -1],
-//       [0, 1],
-//       [1, -1],
-//       [1, 0],
-//       [1, 1],
-//     ]
-
-//     if (currentElement) {
-//       let aliveNeighborsCount = 0
-//       for (const dir of directions) {
-//         let row = currentElement[0] + dir[0]
-//         let col = currentElement[1] + dir[1]
-
-//         row = row >= compiledCellArray.length ? 0 : row
-//         row = row < 0 ? compiledCellArray.length - 1 : row
-
-//         col = col >= compiledCellArray[0].length ? 0 : col
-//         col = col < 0 ? compiledCellArray[0].length - 1 : col
-
-//         const locationIndex = cellValuesCopy.liveCells.findIndex(
-//           (element) => element[0] === row && element[1] === col
-//         )
-
-//         if (locationIndex > 0) {
-//           aliveNeighborsCount += aliveNeighborsCount
-//         }
-//       }
-
-//       // if statements go here
-//       if (aliveNeighborsCount === 2 || aliveNeighborsCount === 3) {
-//         newCellValues.liveCells.push(currentElement)
-//       }
-//     }
-//   }
-//   return cellValues
-// }
