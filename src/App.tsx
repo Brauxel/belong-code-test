@@ -7,14 +7,8 @@ import {
 } from './components/shared/elements/CellSimulator'
 import { computeNextGeneration } from './utils/computeNextGeneration'
 
-export interface CellValuesState {
-  liveCells: number[][]
-}
-
-export const constructCellValues = (
-  cellValues: CellValuesState
-): cellRange[][] => {
-  const initialCellValues: cellRange[][] = [
+export const App = () => {
+  const initialState: cellRange[][] = [
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
@@ -23,37 +17,17 @@ export const constructCellValues = (
     [0, 0, 0, 0, 0, 0],
   ]
 
-  for (const val of cellValues.liveCells) {
-    initialCellValues[val[0]][val[1]] = 1
-  }
-
-  return initialCellValues
-}
-
-export const App = () => {
-  const initialState: CellValuesState = {
-    liveCells: [],
-  }
-
-  const [cellValues, setCellValues] = useState<CellValuesState>(initialState)
-
-  const compiledCellArray: cellRange[][] = constructCellValues(cellValues)
+  const [cellValues, setCellValues] = useState<cellRange[][]>(initialState)
 
   const toggleGridLife = (location: number[]) => {
-    const cellValuesCopy = { ...cellValues }
-    const locationIndex = cellValuesCopy.liveCells.findIndex(
-      (element) => element[0] === location[0] && element[1] === location[1]
-    )
-    if (locationIndex < 0) {
-      cellValuesCopy.liveCells.push(location)
-    } else {
-      cellValuesCopy.liveCells.splice(locationIndex, 1)
-    }
-    setCellValues({ ...cellValuesCopy })
+    cellValues[location[0]][location[1]] =
+      cellValues[location[0]][location[1]] === 1 ? 0 : 1
+
+    setCellValues([...cellValues])
   }
 
   const generateNextGeneration = () => {
-    setCellValues({ ...computeNextGeneration(cellValues) })
+    setCellValues([...computeNextGeneration(cellValues)])
   }
 
   return (
@@ -61,15 +35,12 @@ export const App = () => {
       <div className="App-header">
         <p>Welcome to my Cell simulator</p>
         <CellSimulator
-          cells={compiledCellArray}
+          cells={cellValues}
           noOfColumns={6}
           toggleGridValue={toggleGridLife}
         />
 
-        <Button
-          type="button"
-          onClick={() => setCellValues({ ...initialState })}
-        >
+        <Button type="button" onClick={() => setCellValues([...initialState])}>
           Reset
         </Button>
 
