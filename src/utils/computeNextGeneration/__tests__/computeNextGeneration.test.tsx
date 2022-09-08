@@ -148,4 +148,50 @@ describe('computeNextGeneration', () => {
       expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
     })
   })
+
+  describe('test cell wrapping', () => {
+    it('should compare rows at the left and right ends of the board', () => {
+      const cellValues: cellRange[][] = [
+        [0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+      ]
+
+      const expectedResult: cellRange[][] = [
+        [0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+      ]
+
+      expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
+    })
+
+    it('should compare cols at the top and bottom ends of the board', () => {
+      const cellValues: cellRange[][] = [
+        [0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1],
+      ]
+
+      const expectedResult: cellRange[][] = [
+        [0, 0, 0, 0, 1, 1],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1],
+      ]
+
+      expect(computeNextGeneration(cellValues)).toEqual(expectedResult)
+    })
+  })
 })
