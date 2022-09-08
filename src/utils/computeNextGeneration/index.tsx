@@ -4,8 +4,6 @@ import { cloneDeep } from 'lodash'
 export const computeNextGeneration = (cellValues: cellRange[][]) => {
   const newCellValues = cloneDeep(cellValues)
   const queue = extractValueLocationsFromCellArray(1, cellValues)
-
-  // BFS
   const directions = [
     [-1, -1],
     [-1, 0],
@@ -34,21 +32,15 @@ export const computeNextGeneration = (cellValues: cellRange[][]) => {
 
           if (cellValues[row][col] === 1) {
             currentAliveNeighbors += 1
-          } else if (
-            cellValues[row][col] === 0 &&
-            cellValues[currentElement[0]][currentElement[1]] === 1
-          ) {
+          } else if (cellValues[currentElement[0]][currentElement[1]] === 1) {
             queue.push([row, col])
           }
         }
 
-        // if statements go here
         if (cellValues[currentElement[0]][currentElement[1]] === 1) {
           if (currentAliveNeighbors === 2 || currentAliveNeighbors === 3) {
             continue
-          }
-
-          if (currentAliveNeighbors > 3 || currentAliveNeighbors < 2) {
+          } else {
             newCellValues[currentElement[0]][currentElement[1]] = 0
           }
         } else {
