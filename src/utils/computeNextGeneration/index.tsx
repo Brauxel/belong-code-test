@@ -26,14 +26,11 @@ export const computeNextGeneration = (cellValues: cellRange[][]) => {
       if (currentElement) {
         let currentAliveNeighbors = 0
         for (const d of directions) {
-          let row: number = currentElement[0] + d[0]
-          let col: number = currentElement[1] + d[1]
-
-          row = row >= cellValues.length ? 0 : row
-          row = row < 0 ? cellValues.length - 1 : row
-
-          col = col >= cellValues[0].length ? 0 : col
-          col = col < 0 ? cellValues[0].length - 1 : col
+          const { row, col } = computeRowColInCircularArray(
+            currentElement[0] + d[0],
+            currentElement[1] + d[1],
+            cellValues
+          )
 
           if (cellValues[row][col] === 1) {
             currentAliveNeighbors += 1
@@ -82,4 +79,18 @@ export const extractValueLocationsFromCellArray = (
   }
 
   return queue
+}
+
+export const computeRowColInCircularArray = (
+  row: number,
+  col: number,
+  cellValues: cellRange[][]
+) => {
+  let computedRow = row >= cellValues.length ? 0 : row
+  computedRow = computedRow < 0 ? cellValues.length - 1 : computedRow
+
+  let computedCol = col >= cellValues[0].length ? 0 : col
+  computedCol = computedCol < 0 ? cellValues[0].length - 1 : computedCol
+
+  return { row: computedRow, col: computedCol }
 }
