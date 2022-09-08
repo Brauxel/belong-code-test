@@ -71,7 +71,11 @@ export const App = () => {
           Reset
         </Button>
 
-        <Button type="button" onClick={generateNextGeneration}>
+        <Button
+          type="button"
+          data-testid="next-generation-button"
+          onClick={generateNextGeneration}
+        >
           Next Generation
         </Button>
       </AppHeaderComponent>
